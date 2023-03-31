@@ -26,7 +26,7 @@ def main():
             return
 
         for guess in range(1, 10):
-            if is_valid_slot(board, slot, guess):
+            if is_valid_in_slot(board, slot, guess):
                 stack.append(update_board(board, slot, guess))
 
 
@@ -35,7 +35,7 @@ def get_empty_slot(board):
     return Slot(0, 0)
 
 
-def is_valid_slot(board, slot, guess):
+def is_valid_in_slot(board, slot, guess):
     return is_valid_in_row(board, guess, slot.row) \
         and is_valid_in_column(board, guess, slot.col) \
         and is_valid_in_square(board, slot, guess)
