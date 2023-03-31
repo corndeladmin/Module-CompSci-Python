@@ -27,8 +27,7 @@ def main():
 
         for guess in range(1, 10):
             if is_valid_slot(board, slot, guess):
-                if is_valid_slot(board, slot, guess):
-                    stack.append(update_board(board, slot, guess))
+                stack.append(update_board(board, slot, guess))
 
 
 def get_empty_slot(board):
