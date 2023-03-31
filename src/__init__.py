@@ -1,3 +1,6 @@
+import math
+import copy
+
 def main():
     init_board = [
         [0, 0, 0, 0, 0, 2, 1, 0, 0],
@@ -31,8 +34,12 @@ def main():
 
 
 def get_empty_slot(board):
-    raise Exception("Fill Me In!")
-    return Slot(0, 0)
+    for row in range(9):
+        for col in range(9):
+            if board[row][col] == 0:
+                return Slot(row, col)
+
+    return None
 
 
 def is_valid_in_slot(board, slot, guess):
@@ -42,22 +49,35 @@ def is_valid_in_slot(board, slot, guess):
 
 
 def is_valid_in_row(board, guess, row):
-    raise Exception("Fill Me In!")
+    for col in range(9):
+        if board[row][col] == guess:
+            return False
     return True
 
 
 def is_valid_in_column(board, guess, col):
-    raise Exception("Fill Me In!")
+    for row in range(9):
+        if board[row][col] == guess:
+            return False
     return True
 
 
 def is_valid_in_square(board, slot, guess):
-    raise Exception("Fill Me In!")
+    square_x = math.floor(slot.row / 3)
+    square_y = math.floor(slot.col / 3)
+
+    for row in range(square_x * 3, (square_x + 1) * 3):
+        for col in range(square_y * 3, (square_y + 1) * 3):
+            if board[row][col] == guess:
+                return False
+
     return True
 
 
 def update_board(board, slot, guess):
-    raise Exception("Fill Me In!")
+    new_board = copy.deepcopy(board)
+    new_board[slot.row][slot.col] = guess
+    return new_board
 
 
 def print_row_line():
