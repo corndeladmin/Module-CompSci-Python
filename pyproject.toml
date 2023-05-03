@@ -2,7 +2,7 @@
 name = "module-compsci-python"
 version = "0.1.0"
 description = ""
-authors = ["IonBir <ion.birsu@softwire.com>"]
+authors = []
 readme = "README.md"
 packages = [{include = "src"}]
 
